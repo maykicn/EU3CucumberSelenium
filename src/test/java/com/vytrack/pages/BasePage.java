@@ -96,6 +96,8 @@ public abstract class  BasePage {
     public void navigateToModule(String tab, String module) {
         String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
         String moduleLocator = "//span[normalize-space()='" + module + "' and contains(@class, 'title title-level-2')]";
+        System.out.println("tabLocator = " + tabLocator);
+
         try {
             BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
             WebElement tabElement = Driver.get().findElement(By.xpath(tabLocator));

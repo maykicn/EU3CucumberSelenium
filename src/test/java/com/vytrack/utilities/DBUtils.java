@@ -1,26 +1,21 @@
 package com.vytrack.utilities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class DBUtils {
+
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
 
     public static void createConnection() {
-
         String dbUrl = ConfigurationReader.get("qa1_db_url");
         String dbUsername = ConfigurationReader.get("qa1_db_username");
         String dbPassword = ConfigurationReader.get("qa1_db_password");
-
         try {
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
@@ -185,4 +180,5 @@ public class DBUtils {
         int rowCount = resultSet.getRow();
         return rowCount;
     }
+
 }
